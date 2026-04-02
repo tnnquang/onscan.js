@@ -682,7 +682,9 @@ const onScan: OnScanInstance = {
     const data = this.scannerDetectionData!;
 
     if (iKeyCode === data.options.scanButtonKeyCode) {
-      clearTimeout(data.vars.longPressTimer);
+      if (data.vars.longPressTimer !== undefined) {
+        clearTimeout(data.vars.longPressTimer);
+      }
       data.vars.longPressed = false;
     }
   },
